@@ -1,3 +1,4 @@
+import fetch, { Response } from 'node-fetch';
 import { Handler, HandlerEvent } from '@netlify/functions';
 
 const BASE_URL = `https://geo.ipify.org/api/v2/country,city`;
