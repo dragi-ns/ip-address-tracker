@@ -66,8 +66,8 @@ export default function App() {
           <Map position={data.coords} />
         </>
       ) : (
-        <div className="bg-gray-200 text-white grid place-content-center text-3xl absolute inset-0">
-          Loading...
+        <div className="bg-gray-200 text-white grid place-content-center absolute inset-0">
+          <h1 className="text-3xl">Loading...</h1>
         </div>
       )}
     </main>
