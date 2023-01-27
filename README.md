@@ -31,7 +31,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: https://github.com/dragi-ns/ip-address-tracker/
-- Live Site URL: https://poetic-rugelach-234563.netlify.app/
+- Live Site URL: https://cozy-marzipan-1a4f90.netlify.app/
 
 ## My process
 
@@ -45,6 +45,7 @@ Users should be able to:
 - [Typescript](https://www.typescriptlang.org/)
 - [Tailwind](https://tailwindcss.com/)
 - [Vite](https://vitejs.dev/)
+- [Netlify Serverless Functions](https://docs.netlify.com/functions/overview/)
 
 ## Author
 
