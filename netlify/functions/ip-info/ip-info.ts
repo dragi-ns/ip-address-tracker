@@ -3,10 +3,15 @@ import { Handler, HandlerEvent } from '@netlify/functions';
 
 const BASE_URL = `https://geo.ipify.org/api/v2/country,city`;
 
-export const handler: Handler = async (event: HandlerEvent) => {
+export const handler: Handler = async (event: HandlerEvent, context) => {
   const { API_KEY } = process.env;
-  //@ts-ignore
-  const { domain = '' } = event.queryStringParameters;
+  let domain = event.queryStringParameters?.domain;
+  if (!domain || domain.length === 0) {
+    domain =
+      event.headers['x-nf-client-connection-ip'] ||
+      event.headers['client-ip'] ||
+      '';
+  }
 
   let response: Response;
   let data: any;
@@ -15,7 +20,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
     if (!response.ok) {
       throw Error(response.statusText);
     }
-    data = await response.json();
+    data = await response.text();
   } catch (error) {
     return {
       statusCode: error.statusCode || 500,
@@ -27,6 +32,6 @@ export const handler: Handler = async (event: HandlerEvent) => {
 
   return {
     statusCode: 200,
-    body: JSON.stringify(data),
+    body: data,
   };
 };
